@@ -1,0 +1,53 @@
+[Stack]
+FillEnabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[stlink]
+stlinkserialNo=2798FD0D
+stlinkfoundProbes=
+[DebugChecksum]
+Checksum=-639505247
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=1
+[Disassembly]
+MixedMode=1
+[watch_formats]
+Fmt0={W}1:rec_buf	0	2
+Fmt1={W}1:send_buf	0	2
+Fmt2={W}1:uip_appdata	4	2
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\system_stm32f2xx.c}.116.17" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Ethernet\app\ethernet.h}.33.1" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\system_stm32f2xx.c}.35.14" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Ethernet\httpd\httpd-cgi.c}.216.3" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Ethernet\httpd\httpd.c}.300.23" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Ethernet\uip\clock.h}.79.1" 0 0 1 "" 0 "" 0
+Bp6=_ 0 "EMUL_DATA" "numer" 0 0 0 0 4294967295
+Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\Libraries\STM32_ETH_Driver\src\stm32_eth.c}.2817.1" 0 0 1 "" 0 "" 0
+Bp8=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\Libraries\STM32_ETH_Driver\src\stm32_eth.c}.2817.1" 0 0 1 "" 0 "" 0
+Count=9
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[Aliases]
+Count=0
+SuppressDialog=0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
