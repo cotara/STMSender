@@ -60,7 +60,7 @@ Ticks = 0;
   TIM_TimeBaseInitTypeDef base_timer;
   TIM_TimeBaseStructInit(&base_timer);
   base_timer.TIM_Prescaler = 42000 - 1;                                         //1мс
-  base_timer.TIM_Period = 4*1000;                                              //2 секунд!
+  base_timer.TIM_Period = 2*1000;                                              //5 секунд!
   TIM_TimeBaseInit(TIM6, &base_timer);
 
   TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);

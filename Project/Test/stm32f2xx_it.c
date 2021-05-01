@@ -68,7 +68,7 @@ void USART2_IRQHandler(void) {
             
         }                                 //Сообщение из USART пришло без ошибок
         else
-           USART_ReceiveData(USART2) & 0xFF;
+           USART_ReceiveData(USART2) ;
     }
     
     

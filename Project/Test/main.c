@@ -53,8 +53,9 @@ void resetBufferEmpty(){
 }
 
 void generateRandomBuffer(){
+  uint8_t k=0;
   for(int i=0;i<DATA_BUFFER_SIZE;i++){
-      dataBuffer[i] = rand()%200;
+      dataBuffer[i] = k++;
     }
   resetBufferEmpty();
 }

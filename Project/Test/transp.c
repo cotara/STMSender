@@ -2,13 +2,6 @@
 #include "transp.h"
 #include "slip.h"
 #include "main.h"
-/////////////////
-//Формат пакета: 
-//id - 2 байта
-//len - 2 байта
-//data
-//crc16 - 2 байта
-/////////////////
 
 //Разметка буферов на структуры заголовков
 #define OUT_BUF_SLIP ((struct slip_hdr *)&outBuf[0])
@@ -19,11 +12,10 @@
 uint8_t outBuf[OUT_BUFFER_SIZE];                                                //Буфер, сожержащий упакованный пакет, готовый к отправке
 uint8_t inBuf[IN_BUF_SIZE];                                                     //Буфер входящих команд
 extern uint8_t dataBuffer[DATA_BUFFER_SIZE];                                    //Буфер пользователя
+uint16_t dataBufferTxTail=0;
 
-//Очередь команд
 uint8_t slipFlag=0,inLen;
 uint16_t outLen;
-
 int check_crc16(uint8_t *data_p, uint16_t len);
 uint16_t _crc16(uint8_t *data_p, uint16_t len);
 
@@ -45,7 +37,9 @@ void slip_packet_receive_handler() {
 
 //Обработка пакета на транспортном уровне
 void transp_packet_receive_handler() {
-    switch(IN_BUF_TRASP->cmd) {
+    uint8_t cmd=IN_BUF_TRASP->cmd;
+    uint16_t  value=IN_BUF_TRASP->valueMSB*256+IN_BUF_TRASP->valueLSB;
+    switch(cmd) {
       case ASK_MCU: {
           send_std_answer(ASK_MCU, OK);
           break;
@@ -53,21 +47,37 @@ void transp_packet_receive_handler() {
       case STATUS_REQUEST: {
         if(bufferIsEmpy())
           send_std_answer(STATUS_REQUEST, NO_DATA_READY);
-        else
-          send_std_answer(STATUS_REQUEST, DATA_READY);
-          break;
+        else{
+          send_std_answer(STATUS_REQUEST, DATA_BUFFER_SIZE);                    //Отправляем количество доступных точек
+          dataBufferTxTail=0;                                                   //Начинаем буфер сначала
+          }
+        break;
       }
       case REQUEST_POINTS: {
           if (bufferIsEmpy())
               send_std_answer(REQUEST_POINTS, NO_DATA_READY);
-          else {          
+          else {           
               OUT_BUF_TRASP->cmd = REQUEST_POINTS;                              //отправляем точки
-              OUT_BUF_TRASP->value = OK;
-              
-              memcpy(OUT_BUF_TRASP+TRANS_HDR_LEN, dataBuffer, DATA_BUFFER_SIZE);
-              outLen+=TRANS_HDR_LEN+DATA_BUFFER_SIZE;
+              OUT_BUF_TRASP->valueMSB = (OK & 0xFF00) >> 8;
+              OUT_BUF_TRASP->valueLSB = OK & 0xFF;
+
+              if (DATA_BUFFER_SIZE-dataBufferTxTail >= value){                  //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
+                memcpy(OUT_BUF_TRASP+1, dataBuffer+dataBufferTxTail, value);
+                outLen+=TRANS_HDR_LEN+value;
+                dataBufferTxTail+=value;                                        //Передвинули указатель
+                if(dataBufferTxTail==DATA_BUFFER_SIZE){                         //Отправляем последнее сообщение
+                  dataBufferTxTail=0;                                             //Закончили отправку последней точки в буфере
+                  setBufferEmpty();
+                }
+              }
+              else {                                                            //На всяки случай, если запросят больше, чем есть
+                memcpy(OUT_BUF_TRASP+1, dataBuffer+dataBufferTxTail, DATA_BUFFER_SIZE-dataBufferTxTail);
+                outLen+=TRANS_HDR_LEN+value;
+                dataBufferTxTail=0;                                             //Закончили отправку последней точки в буфере
+                setBufferEmpty();
+              }
               transp_send_answer();
-              setBufferEmpty();
+              
           }
           break;
       }  
@@ -110,10 +120,11 @@ uint16_t _crc16(uint8_t *buff, uint16_t len) {
     return (crc);
 }
 
-void send_std_answer(uint8_t cmd, uint8_t value) {
-    OUT_BUF_TRASP->cmd = cmd;
-    OUT_BUF_TRASP->value = value;
-    outLen+=2;
+void send_std_answer(uint8_t cmd, uint16_t value) {
+    OUT_BUF_TRASP->cmd = cmd;                                                
+    OUT_BUF_TRASP->valueMSB = (value & 0xFF00) >> 8;
+    OUT_BUF_TRASP->valueLSB = value & 0xFF;
+    outLen+=3;
     transp_send_answer();
 }
 
