@@ -7,7 +7,7 @@
 #include "slip.h"
 #include "transp.h"
 
-uint8_t dataBuffer[DATA_BUFFER_SIZE];
+uint8_t ch1_f[DATA_BUFFER_SIZE], ch1_nf[DATA_BUFFER_SIZE], ch2_f[DATA_BUFFER_SIZE], ch2_nf[DATA_BUFFER_SIZE];
 
 uint32_t delay_decrement_1mcs;
 __IO uint32_t TimeOut = 0x00;
@@ -55,7 +55,10 @@ void resetBufferEmpty(){
 void generateRandomBuffer(){
   uint8_t k=0;
   for(int i=0;i<DATA_BUFFER_SIZE;i++){
-      dataBuffer[i] = k++;
+      ch1_f[i] = k++;
+      ch1_nf[i] = k+4;
+      ch2_f[i] = k+5;
+      ch2_nf[i] = k+5;
     }
   resetBufferEmpty();
 }
