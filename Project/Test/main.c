@@ -18,7 +18,7 @@ extern volatile uint16_t rx_wr_index, rx_rd_index, rx_counter;
 extern volatile uint8_t tx_buffer[TX_BUFFER_SIZE];
 extern volatile uint16_t tx_wr_index, tx_rd_index, tx_counter;
 
-uint8_t isEmpty=1;
+uint8_t isEmptyCH1=1,isEmptyCH2=1,isEmptyCH3=1,isEmptyCH4=1;
 
 /********************************************************
 * MAIN
@@ -40,27 +40,52 @@ void main(void) {
      }    
 }
 
-uint8_t bufferIsEmpy(){
-  return isEmpty;
+uint8_t bufferIsEmpy(uint8_t ch){
+  if(ch==1)
+     return isEmptyCH1;
+  if(ch==2)
+     return isEmptyCH2;
+  if(ch==3)
+     return isEmptyCH3;
+  if(ch==4)
+     return isEmptyCH4;
+ 
 }
 //Устанвить, что буфер пустой
-void setBufferEmpty(){
-  isEmpty=1;
+void setBufferEmpty(uint8_t ch){
+  if(ch==1)
+    isEmptyCH1=1;
+  if(ch==2)
+    isEmptyCH2=1;
+  if(ch==3)
+    isEmptyCH3=1;
+  if(ch==4)
+    isEmptyCH4=1;  
 }
 //Установить, что буфер не пустой
-void resetBufferEmpty(){
-  isEmpty=0;
+void resetBufferEmpty(uint8_t ch){
+  if(ch==1)
+    isEmptyCH1=0;
+  if(ch==2)
+    isEmptyCH2=0;
+  if(ch==3)
+    isEmptyCH3=0;
+  if(ch==4)
+    isEmptyCH4=0;  
 }
 
 void generateRandomBuffer(){
   uint8_t k=0;
   for(int i=0;i<DATA_BUFFER_SIZE;i++){
       ch1_f[i] = k++;
-      ch1_nf[i] = k+4;
-      ch2_f[i] = k+5;
-      ch2_nf[i] = k+5;
+      ch1_nf[i] = k+50;
+      ch2_f[i] = k+100;
+      ch2_nf[i] = k+150;
     }
-  resetBufferEmpty();
+  resetBufferEmpty(1);
+  resetBufferEmpty(2);
+  resetBufferEmpty(3);
+  resetBufferEmpty(4);
 }
 void Delay_100mcs(uint32_t nTime) {
     delay_decrement_1mcs = nTime;

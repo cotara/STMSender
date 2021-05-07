@@ -22,10 +22,10 @@
 #define STATUS_REQUEST  0x50
 #define REQUEST_POINTS  0x70
 #define WRITE_POINTS    0x74
-#define CH1_F           0x01
-#define CH1_NF          0x02
-#define CH2_F           0x03
-#define CH2_NF          0x04
+#define CH1             0x01
+#define CH2             0x02
+#define CH3             0x03
+#define CH4             0x04
 
 
 #define OUT_BUFFER_SIZE 11000

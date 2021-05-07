@@ -39,13 +39,14 @@ void slip_packet_receive_handler() {
 void transp_packet_receive_handler() {
     uint8_t cmd=IN_BUF_TRASP->cmd;
     uint16_t  value=IN_BUF_TRASP->valueMSB*256+IN_BUF_TRASP->valueLSB;
+    outLen=0;
     switch(cmd) {
       case ASK_MCU: {
           send_std_answer(ASK_MCU, OK);
           break;
       }
       case STATUS_REQUEST: {
-        if(bufferIsEmpy())
+        if(bufferIsEmpy(1)|| bufferIsEmpy(2) || bufferIsEmpy(3) || bufferIsEmpy(4))
           send_std_answer(STATUS_REQUEST, NO_DATA_READY);
         else{
           send_std_answer(STATUS_REQUEST, DATA_BUFFER_SIZE);                    //Отправляем количество доступных точек
@@ -56,41 +57,41 @@ void transp_packet_receive_handler() {
           }
         break;
       }
-      case CH1_F: {
-          if (bufferIsEmpy())
+      case CH1: {
+          if (bufferIsEmpy(1))
               send_std_answer(REQUEST_POINTS, NO_DATA_READY);
           else {           
               OUT_BUF_TRASP->cmd = REQUEST_POINTS;                              //отправляем точки
-              OUT_BUF_TRASP->valueMSB = CH1_F;
-              OUT_BUF_TRASP->valueLSB = CH1_F;
+              OUT_BUF_TRASP->valueMSB = CH1;
+              OUT_BUF_TRASP->valueLSB = CH1;
 
-              if (DATA_BUFFER_SIZE-ch1_fTxTail >= value){                  //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
+              if (DATA_BUFFER_SIZE-ch1_fTxTail >= value){                       //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
                 memcpy(OUT_BUF_TRASP+1, ch1_f+ch1_fTxTail, value);
                 outLen+=TRANS_HDR_LEN+value;
                 ch1_fTxTail+=value;                                             //Передвинули указатель
                 if(ch1_fTxTail==DATA_BUFFER_SIZE){                              //Отправляем последнее сообщение
                   ch1_fTxTail=0;                                                //Закончили отправку последней точки в буфере
-                  setBufferEmpty();
+                  setBufferEmpty(1);
                 }
               }
               else {                                                            //На всяки случай, если запросят больше, чем есть
                 memcpy(OUT_BUF_TRASP+1, ch1_f+ch1_fTxTail, DATA_BUFFER_SIZE-ch1_fTxTail);
                 outLen+=TRANS_HDR_LEN+value;
                 ch1_fTxTail=0;                                                  //Закончили отправку последней точки в буфере
-                setBufferEmpty();
+                setBufferEmpty(1);
               }
               transp_send_answer();
               
           }
           break;
       }
-      case CH1_NF: {
-          if (bufferIsEmpy())
+      case CH2: {
+          if (bufferIsEmpy(2))
               send_std_answer(REQUEST_POINTS, NO_DATA_READY);
           else {           
               OUT_BUF_TRASP->cmd = REQUEST_POINTS;                              //отправляем точки
-              OUT_BUF_TRASP->valueMSB = CH1_NF;
-              OUT_BUF_TRASP->valueLSB = CH1_NF;
+              OUT_BUF_TRASP->valueMSB = CH2;
+              OUT_BUF_TRASP->valueLSB = CH2;
 
               if (DATA_BUFFER_SIZE-ch1_nfTxTail >= value){                  //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
                 memcpy(OUT_BUF_TRASP+1, ch1_nf+ch1_nfTxTail, value);
@@ -98,27 +99,27 @@ void transp_packet_receive_handler() {
                 ch1_nfTxTail+=value;                                             //Передвинули указатель
                 if(ch1_nfTxTail==DATA_BUFFER_SIZE){                              //Отправляем последнее сообщение
                   ch1_nfTxTail=0;                                                //Закончили отправку последней точки в буфере
-                  setBufferEmpty();
+                  setBufferEmpty(2);
                 }
               }
               else {                                                            //На всяки случай, если запросят больше, чем есть
                 memcpy(OUT_BUF_TRASP+1, ch1_nf+ch1_nfTxTail, DATA_BUFFER_SIZE-ch1_nfTxTail);
                 outLen+=TRANS_HDR_LEN+value;
                 ch1_nfTxTail=0;                                                  //Закончили отправку последней точки в буфере
-                setBufferEmpty();
+                setBufferEmpty(2);
               }
               transp_send_answer();
               
           }
           break;
       } 
-      case CH2_F: {
-          if (bufferIsEmpy())
+      case CH3: {
+          if (bufferIsEmpy(3))
               send_std_answer(REQUEST_POINTS, NO_DATA_READY);
           else {           
               OUT_BUF_TRASP->cmd = REQUEST_POINTS;                              //отправляем точки
-              OUT_BUF_TRASP->valueMSB = CH2_F;
-              OUT_BUF_TRASP->valueLSB = CH2_F;
+              OUT_BUF_TRASP->valueMSB = CH3;
+              OUT_BUF_TRASP->valueLSB = CH3;
 
               if (DATA_BUFFER_SIZE-ch2_fTxTail >= value){                  //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
                 memcpy(OUT_BUF_TRASP+1, ch2_f+ch2_fTxTail, value);
@@ -126,27 +127,27 @@ void transp_packet_receive_handler() {
                 ch2_fTxTail+=value;                                             //Передвинули указатель
                 if(ch2_fTxTail==DATA_BUFFER_SIZE){                              //Отправляем последнее сообщение
                   ch2_fTxTail=0;                                                //Закончили отправку последней точки в буфере
-                  setBufferEmpty();
+                  setBufferEmpty(3);
                 }
               }
               else {                                                            //На всяки случай, если запросят больше, чем есть
                 memcpy(OUT_BUF_TRASP+1, ch2_f+ch2_fTxTail, DATA_BUFFER_SIZE-ch2_fTxTail);
                 outLen+=TRANS_HDR_LEN+value;
                 ch2_fTxTail=0;                                                  //Закончили отправку последней точки в буфере
-                setBufferEmpty();
+                setBufferEmpty(3);
               }
               transp_send_answer();
               
           }
           break;
       }
-      case CH2_NF: {
-          if (bufferIsEmpy())
+      case CH4: {
+          if (bufferIsEmpy(4))
               send_std_answer(REQUEST_POINTS, NO_DATA_READY);
           else {           
               OUT_BUF_TRASP->cmd = REQUEST_POINTS;                              //отправляем точки
-              OUT_BUF_TRASP->valueMSB = CH2_NF;
-              OUT_BUF_TRASP->valueLSB = CH2_NF;
+              OUT_BUF_TRASP->valueMSB = CH4;
+              OUT_BUF_TRASP->valueLSB = CH4;
 
               if (DATA_BUFFER_SIZE-ch2_nfTxTail >= value){                  //Если точек в буфере осталось больше, чем заправшивается, то отправляем сколько запросили
                 memcpy(OUT_BUF_TRASP+1, ch2_nf+ch2_nfTxTail, value);
@@ -154,14 +155,14 @@ void transp_packet_receive_handler() {
                 ch2_nfTxTail+=value;                                             //Передвинули указатель
                 if(ch2_nfTxTail==DATA_BUFFER_SIZE){                              //Отправляем последнее сообщение
                   ch2_nfTxTail=0;                                                //Закончили отправку последней точки в буфере
-                  setBufferEmpty();
+                  setBufferEmpty(4);
                 }
               }
               else {                                                            //На всяки случай, если запросят больше, чем есть
                 memcpy(OUT_BUF_TRASP+1, ch2_nf+ch2_nfTxTail, DATA_BUFFER_SIZE-ch2_nfTxTail);
                 outLen+=TRANS_HDR_LEN+value;
                 ch2_nfTxTail=0;                                                  //Закончили отправку последней точки в буфере
-                setBufferEmpty();
+                setBufferEmpty(4);
               }
               transp_send_answer();
           }
@@ -183,7 +184,7 @@ void transp_send_answer() {
     outLen+=2;
     //Передали следующему уровню на отправку
     slip_send_packet(outBuf, outLen);
-    outLen=0;
+
 }
 
 int check_crc16(uint8_t *buff, uint16_t len) {
