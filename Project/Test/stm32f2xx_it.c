@@ -111,9 +111,9 @@ void TIM5_IRQHandler(void) {
 // каждые 2 секунды генерируется новый буфер
 void TIM6_DAC_IRQHandler() {
     if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET) {
-        generateRandomBuffer();
+        generateBuffer();
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
-        
+        TIM_Cmd(TIM6, DISABLE);
     }
 }
 // таймер для генераци строба

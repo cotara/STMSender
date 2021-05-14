@@ -26,8 +26,8 @@ typedef union{
 void Delay_100mcs(uint32_t nTime);
 void assert_failed(uint8_t* file, uint32_t line);
 
-void generateRandomBuffer();
-uint8_t bufferIsEmpy(uint8_t ch);
-void setBufferEmpty(uint8_t ch);
-void resetBufferEmpty(uint8_t ch);
+void generateBuffer();
+uint8_t bufferIsEmpy();
+void setBufferEmpty();
+void resetBufferEmpty();
 #endif

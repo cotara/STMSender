@@ -59,8 +59,8 @@ Ticks = 0;
 
   TIM_TimeBaseInitTypeDef base_timer;
   TIM_TimeBaseStructInit(&base_timer);
-  base_timer.TIM_Prescaler = 42000 - 1;                                         //1мс
-  base_timer.TIM_Period = 2*1000;                                              //5 секунд!
+  base_timer.TIM_Prescaler = 42000 - 1;                                         //0.5 мс
+  base_timer.TIM_Period = 2*100;                                                //100 мс!
   TIM_TimeBaseInit(TIM6, &base_timer);
 
   TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);

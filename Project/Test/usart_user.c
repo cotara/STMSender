@@ -33,7 +33,7 @@ int InitUSART2() {
   GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2); //PC11 to RX USART2
   
   USART_InitTypeDef USART_InitStructureUSART;  
-  USART_InitStructureUSART.USART_BaudRate = 115200;
+  USART_InitStructureUSART.USART_BaudRate = 460800;
   USART_InitStructureUSART.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
   USART_InitStructureUSART.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
   USART_InitStructureUSART.USART_Parity = USART_Parity_No;

@@ -7,7 +7,7 @@
 #include "slip.h"
 #include "transp.h"
 
-uint8_t ch1_f[DATA_BUFFER_SIZE], ch1_nf[DATA_BUFFER_SIZE], ch2_f[DATA_BUFFER_SIZE], ch2_nf[DATA_BUFFER_SIZE];
+uint8_t dataBuffer[DATA_BUFFER_SIZE];
 
 uint32_t delay_decrement_1mcs;
 __IO uint32_t TimeOut = 0x00;
@@ -17,8 +17,8 @@ extern volatile uint8_t rx_buffer[RX_BUFFER_SIZE];
 extern volatile uint16_t rx_wr_index, rx_rd_index, rx_counter;
 extern volatile uint8_t tx_buffer[TX_BUFFER_SIZE];
 extern volatile uint16_t tx_wr_index, tx_rd_index, tx_counter;
-
-uint8_t isEmptyCH1=1,isEmptyCH2=1,isEmptyCH3=1,isEmptyCH4=1;
+uint16_t channelOrderState=0;                                                   //Текущая очередь отправки отмеченных каналов
+uint8_t isEmpty=1;                                                              //Флаг, что буфер пустой
 
 /********************************************************
 * MAIN
@@ -40,52 +40,40 @@ void main(void) {
      }    
 }
 
-uint8_t bufferIsEmpy(uint8_t ch){
-  if(ch==1)
-     return isEmptyCH1;
-  if(ch==2)
-     return isEmptyCH2;
-  if(ch==3)
-     return isEmptyCH3;
-  if(ch==4)
-     return isEmptyCH4;
- 
+uint8_t bufferIsEmpy(){
+     return isEmpty;
 }
 //Устанвить, что буфер пустой
-void setBufferEmpty(uint8_t ch){
-  if(ch==1)
-    isEmptyCH1=1;
-  if(ch==2)
-    isEmptyCH2=1;
-  if(ch==3)
-    isEmptyCH3=1;
-  if(ch==4)
-    isEmptyCH4=1;  
+void setBufferEmpty(){
+    isEmpty=1;
 }
 //Установить, что буфер не пустой
-void resetBufferEmpty(uint8_t ch){
-  if(ch==1)
-    isEmptyCH1=0;
-  if(ch==2)
-    isEmptyCH2=0;
-  if(ch==3)
-    isEmptyCH3=0;
-  if(ch==4)
-    isEmptyCH4=0;  
+void resetBufferEmpty(){
+    isEmpty=0;
 }
 
-void generateRandomBuffer(){
+
+void generateBuffer(){
   uint8_t k=0;
-  for(int i=0;i<DATA_BUFFER_SIZE;i++){
-      ch1_f[i] = k++;
-      ch1_nf[i] = k+50;
-      ch2_f[i] = k+100;
-      ch2_nf[i] = k+150;
+  if(channelOrderState==0){                                                     //Если выдали все отмеченные каналы, начинаем сначала
+    channelOrderState=getChannelsOrder();
+    if(channelOrderState==0) return;                                            //Если никакие каналы не отмечены, не генерируем новый буфер
+  } 
+  
+  for (int i=1;i<9;i=i*2){                                                      //пробегаем по битам (отмеченные каналы) до первой единички
+    if(channelOrderState & i){                                                  //нашли единичку
+      k=20*i;                                                                   //для тестовой генерации буфера (ниже)
+      channelOrderState&=~i;                                                    //сбрасываем найденную единичку
+      setCurrentChannel(i);                                                     //Устанавливаем переменную для заголовка в transp.h
+      break;
     }
-  resetBufferEmpty(1);
-  resetBufferEmpty(2);
-  resetBufferEmpty(3);
-  resetBufferEmpty(4);
+  }
+  
+  for(int i=0;i<DATA_BUFFER_SIZE;i++){                                          //Собираем тестовый буфер
+      dataBuffer[i] = k++;
+  }
+  resetBufferEmpty();
+
 }
 void Delay_100mcs(uint32_t nTime) {
     delay_decrement_1mcs = nTime;
