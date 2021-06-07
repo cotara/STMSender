@@ -93,7 +93,19 @@ void transp_packet_receive_handler() {
               
           }
           break;
-      }     
+      } 
+      case LAZER1_SET:{
+        send_std_answer(LAZER1_SET, OK);
+        //value
+      }
+      case LAZER2_SET:{
+        send_std_answer(LAZER1_SET, OK);
+        //value
+      }
+      case LAZERS_SAVE:{
+        send_std_answer(LAZERS_SAVE, OK);
+        //
+      }      
     }
 }      
 

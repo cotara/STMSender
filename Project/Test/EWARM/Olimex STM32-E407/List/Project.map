@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.30.1.114/W32 for ARM                  14/May/2021  22:54:21
+# IAR ELF Linker V8.30.1.114/W32 for ARM                  08/Jun/2021  00:09:44
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
@@ -10,7 +10,7 @@
 #        C:\STM\STMSender\STMSender\Project\Test\EWARM\Olimex
 #        STM32-E407\List\Project.map
 #    Command line =  
-#        -f C:\Users\1489~1\AppData\Local\Temp\EW4A6.tmp
+#        -f C:\Users\1489~1\AppData\Local\Temp\EW1052.tmp
 #        ("C:\STM\STMSender\STMSender\Project\Test\EWARM\Olimex
 #        STM32-E407\Obj\LED_user.o"
 #        "C:\STM\STMSender\STMSender\Project\Test\EWARM\Olimex
@@ -111,48 +111,36 @@ No sections matched the following patterns:
   .intvec            ro code   0x800'0000   0x188  startup_stm32f40xx.o [1]
                              - 0x800'0188   0x188
 
-"P1":                                      0x17c8
-  .text              ro code   0x800'0188   0x2fc  transp.o [1]
-  .text              ro code   0x800'0484    0xf6  slip.o [1]
-  .text              ro code   0x800'057a    0x3a  zero_init3.o [4]
-  .text              ro code   0x800'05b4    0xac  main.o [1]
-  .text              ro code   0x800'0660   0x122  stm32f4xx_tim.o [1]
-  .text              ro code   0x800'0784    0xa6  ABImemcpy.o [4]
-  .text              ro code   0x800'082c    0x68  memcmp.o [4]
-  .text              ro code   0x800'0894   0x198  usart_user.o [1]
-  .text              ro code   0x800'0a2c   0x208  time_user.o [1]
-  .text              ro code   0x800'0c34   0x124  system_stm32f4xx.o [1]
-  .text              ro code   0x800'0d58    0x78  LED_user.o [1]
-  .text              ro code   0x800'0dd0   0x23c  stm32f4xx_rcc.o [1]
-  .text              ro code   0x800'100c   0x130  stm32f4xx_gpio.o [1]
-  .text              ro code   0x800'113c   0x22e  stm32f4xx_usart.o [1]
-  .text              ro code   0x800'136c    0x10  stm32f4xx_pwr.o [1]
-  .text              ro code   0x800'137c   0x1c4  stm32f4xx_rtc.o [1]
-  .text              ro code   0x800'1540   0x1a4  stm32f2xx_it.o [1]
-  .text              ro code   0x800'16e4    0x2c  copy_init3.o [4]
-  .text              ro code   0x800'1710    0x28  data_init.o [4]
-  .text              ro code   0x800'1738    0x22  fpinit_M.o [3]
-  .iar.init_table    const     0x800'175c    0x24  - Linker created -
-  .text              ro code   0x800'1780    0x1e  cmain.o [4]
-  .text              ro code   0x800'179e     0x4  low_level_init.o [2]
-  .text              ro code   0x800'17a2     0x4  exit.o [2]
-  .text              ro code   0x800'17a8     0xa  cexit.o [4]
-  .text              ro code   0x800'17b4    0x14  exit.o [5]
-  .text              ro code   0x800'17c8    0x10  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17d8     0xc  cstartup_M.o [4]
-  .rodata            const     0x800'17e4     0x4  time_user.o [1]
-  .text              ro code   0x800'17e8     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17ec     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17f0     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17f4     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17f8     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'17fc     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'1800     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'1804     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'1808     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'180c     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'1810     0x4  startup_stm32f40xx.o [1]
-  .text              ro code   0x800'1814     0x4  startup_stm32f40xx.o [1]
+"P1":                                      0x17f8
+  .text              ro code   0x800'0188   0x32c  transp.o [1]
+  .text              ro code   0x800'04b4    0xf6  slip.o [1]
+  .text              ro code   0x800'05aa    0x3a  zero_init3.o [4]
+  .text              ro code   0x800'05e4    0xac  main.o [1]
+  .text              ro code   0x800'0690   0x122  stm32f4xx_tim.o [1]
+  .text              ro code   0x800'07b4    0xa6  ABImemcpy.o [4]
+  .text              ro code   0x800'085c    0x68  memcmp.o [4]
+  .text              ro code   0x800'08c4   0x198  usart_user.o [1]
+  .text              ro code   0x800'0a5c   0x208  time_user.o [1]
+  .text              ro code   0x800'0c64   0x124  system_stm32f4xx.o [1]
+  .text              ro code   0x800'0d88    0x78  LED_user.o [1]
+  .text              ro code   0x800'0e00   0x23c  stm32f4xx_rcc.o [1]
+  .text              ro code   0x800'103c   0x130  stm32f4xx_gpio.o [1]
+  .text              ro code   0x800'116c   0x22e  stm32f4xx_usart.o [1]
+  .text              ro code   0x800'139c    0x10  stm32f4xx_pwr.o [1]
+  .text              ro code   0x800'13ac   0x1c4  stm32f4xx_rtc.o [1]
+  .text              ro code   0x800'1570   0x1a4  stm32f2xx_it.o [1]
+  .text              ro code   0x800'1714    0x2c  copy_init3.o [4]
+  .text              ro code   0x800'1740    0x28  data_init.o [4]
+  .text              ro code   0x800'1768    0x22  fpinit_M.o [3]
+  .iar.init_table    const     0x800'178c    0x24  - Linker created -
+  .text              ro code   0x800'17b0    0x1e  cmain.o [4]
+  .text              ro code   0x800'17ce     0x4  low_level_init.o [2]
+  .text              ro code   0x800'17d2     0x4  exit.o [2]
+  .text              ro code   0x800'17d8     0xa  cexit.o [4]
+  .text              ro code   0x800'17e4    0x14  exit.o [5]
+  .text              ro code   0x800'17f8    0x10  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1808     0xc  cstartup_M.o [4]
+  .rodata            const     0x800'1814     0x4  time_user.o [1]
   .text              ro code   0x800'1818     0x4  startup_stm32f40xx.o [1]
   .text              ro code   0x800'181c     0x4  startup_stm32f40xx.o [1]
   .text              ro code   0x800'1820     0x4  startup_stm32f40xx.o [1]
@@ -225,10 +213,22 @@ No sections matched the following patterns:
   .text              ro code   0x800'192c     0x4  startup_stm32f40xx.o [1]
   .text              ro code   0x800'1930     0x4  startup_stm32f40xx.o [1]
   .text              ro code   0x800'1934     0x4  startup_stm32f40xx.o [1]
-  .rodata            const     0x800'1938     0x0  zero_init3.o [4]
-  .rodata            const     0x800'1938     0x0  copy_init3.o [4]
-  Initializer bytes  const     0x800'1938    0x18  <for P4 s0>
-                             - 0x800'1950  0x17c8
+  .text              ro code   0x800'1938     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'193c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1940     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1944     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1948     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'194c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1950     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1954     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1958     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'195c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1960     0x4  startup_stm32f40xx.o [1]
+  .text              ro code   0x800'1964     0x4  startup_stm32f40xx.o [1]
+  .rodata            const     0x800'1968     0x0  zero_init3.o [4]
+  .rodata            const     0x800'1968     0x0  copy_init3.o [4]
+  Initializer bytes  const     0x800'1968    0x18  <for P4 s0>
+                             - 0x800'1980  0x17f8
 
 "P3":                                      0x2000
   CSTACK                      0x1000'0000  0x2000  <Block>
@@ -272,7 +272,7 @@ Unused ranges:
 
          From           To      Size
          ----           --      ----
-   0x800'1950   0x80f'ffff  0xf'e6b0
+   0x800'1980   0x80f'ffff  0xf'e680
   0x1000'2000  0x1000'ffff    0xe000
   0x2000'7e08  0x2001'bfff  0x1'41f8
   0x2001'c000  0x2001'ffff    0x4000
@@ -290,7 +290,7 @@ Zero (__iar_zero_init3)
 
 Copy (__iar_copy_init3)
     1 source range, total size 0x18 (114% of destination):
-           0x800'1938    0x18
+           0x800'1968    0x18
     1 destination range, total size 0x15:
           0x2000'0000    0x15
 
@@ -320,10 +320,10 @@ C:\STM\STMSender\STMSender\Project\Test\EWARM\Olimex STM32-E407\Obj: [1]
     stm32f4xx_usart.o         558
     system_stm32f4xx.o        292
     time_user.o               520        4        4
-    transp.o                  764        4   11 114
+    transp.o                  812        4   11 114
     usart_user.o              408            11 008
     -----------------------------------------------
-    Total:                  5 878       25   32 261
+    Total:                  5 926       25   32 261
 
 dl7M_tlf.a: [2]
     exit.o                      4
@@ -356,7 +356,7 @@ shb_l.a: [5]
     Gaps                       10        2
     Linker created                      39    8 192
 ---------------------------------------------------
-    Grand Total:            6 414       66   40 453
+    Grand Total:            6 462       66   40 453
 
 
 *******************************************************************************
@@ -365,128 +365,128 @@ shb_l.a: [5]
 
 Entry                       Address    Size  Type      Object
 -----                       -------    ----  ----      ------
-.iar.init_table$$Base    0x800'175c           --   Gb  - Linker created -
-.iar.init_table$$Limit   0x800'1780           --   Gb  - Linker created -
-?main                    0x800'1781          Code  Gb  cmain.o [4]
+.iar.init_table$$Base    0x800'178c           --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'17b0           --   Gb  - Linker created -
+?main                    0x800'17b1          Code  Gb  cmain.o [4]
 APBAHBPrescTable        0x2000'0000    0x10  Data  Lc  stm32f4xx_rcc.o [1]
 CSTACK$$Base            0x1000'0000           --   Gb  - Linker created -
 CSTACK$$Limit           0x1000'2000           --   Gb  - Linker created -
-GPIO_Init                0x800'100d    0xca  Code  Gb  stm32f4xx_gpio.o [1]
-GPIO_PinAFConfig         0x800'10db    0x62  Code  Gb  stm32f4xx_gpio.o [1]
-GPIO_SetBits             0x800'10d7     0x4  Code  Gb  stm32f4xx_gpio.o [1]
-HardFault_Handler        0x800'1541     0x2  Code  Gb  stm32f2xx_it.o [1]
-InitUSART2               0x800'08df    0xbe  Code  Gb  usart_user.o [1]
-LEDInit                  0x800'0d59    0x5e  Code  Gb  LED_user.o [1]
-LEDToggle                0x800'0db7     0xc  Code  Gb  LED_user.o [1]
-PWR_BackupAccessCmd      0x800'136d     0xa  Code  Gb  stm32f4xx_pwr.o [1]
-RCC_AHB1PeriphClockCmd   0x800'0f3d    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_APB1PeriphClockCmd   0x800'0f59    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_APB1PeriphResetCmd   0x800'0f75    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_GetClocksFreq        0x800'0df9   0x102  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_GetFlagStatus        0x800'0f91    0x46  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_LSEConfig            0x800'0dd1    0x28  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_RTCCLKCmd            0x800'0f31     0xc  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_RTCCLKConfig         0x800'0efb    0x36  Code  Gb  stm32f4xx_rcc.o [1]
-RTC_Bcd2ToByte           0x800'1529    0x18  Code  Lc  stm32f4xx_rtc.o [1]
-RTC_ByteToBcd2           0x800'1511    0x18  Code  Lc  stm32f4xx_rtc.o [1]
-RTC_EnterInitMode        0x800'137d    0x4a  Code  Gb  stm32f4xx_rtc.o [1]
-RTC_ExitInitMode         0x800'13c7     0xe  Code  Gb  stm32f4xx_rtc.o [1]
-RTC_SetTime              0x800'1427    0xd4  Code  Gb  stm32f4xx_rtc.o [1]
-RTC_WaitForSynchro       0x800'13d5    0x52  Code  Gb  stm32f4xx_rtc.o [1]
-RTC_init                 0x800'0b87    0x62  Code  Gb  time_user.o [1]
-Region$$Table$$Base      0x800'175c           --   Gb  - Linker created -
-Region$$Table$$Limit     0x800'1780           --   Gb  - Linker created -
-SetSysClock              0x800'0c7b    0xaa  Code  Lc  system_stm32f4xx.o [1]
-SysTickStart             0x800'0be9    0x26  Code  Gb  time_user.o [1]
-SysTick_Handler          0x800'1543    0x24  Code  Gb  stm32f2xx_it.o [1]
-SystemInit               0x800'0c35    0x46  Code  Gb  system_stm32f4xx.o [1]
-TIM2_IRQHandler          0x800'1627    0x24  Code  Gb  stm32f2xx_it.o [1]
-TIM5_IRQHandler          0x800'164b    0x22  Code  Gb  stm32f2xx_it.o [1]
-TIM6_DAC_IRQHandler      0x800'166d    0x26  Code  Gb  stm32f2xx_it.o [1]
-TIM7_IRQHandler          0x800'1693    0x1a  Code  Gb  stm32f2xx_it.o [1]
-TIM_ClearFlag            0x800'0735     0xa  Code  Gb  stm32f4xx_tim.o [1]
-TIM_ClearITPendingBit    0x800'076d     0xa  Code  Gb  stm32f4xx_tim.o [1]
-TIM_Cmd                  0x800'06e3    0x1e  Code  Gb  stm32f4xx_tim.o [1]
-TIM_GetITStatus          0x800'073f    0x2e  Code  Gb  stm32f4xx_tim.o [1]
-TIM_ITConfig             0x800'071d    0x18  Code  Gb  stm32f4xx_tim.o [1]
+GPIO_Init                0x800'103d    0xca  Code  Gb  stm32f4xx_gpio.o [1]
+GPIO_PinAFConfig         0x800'110b    0x62  Code  Gb  stm32f4xx_gpio.o [1]
+GPIO_SetBits             0x800'1107     0x4  Code  Gb  stm32f4xx_gpio.o [1]
+HardFault_Handler        0x800'1571     0x2  Code  Gb  stm32f2xx_it.o [1]
+InitUSART2               0x800'090f    0xbe  Code  Gb  usart_user.o [1]
+LEDInit                  0x800'0d89    0x5e  Code  Gb  LED_user.o [1]
+LEDToggle                0x800'0de7     0xc  Code  Gb  LED_user.o [1]
+PWR_BackupAccessCmd      0x800'139d     0xa  Code  Gb  stm32f4xx_pwr.o [1]
+RCC_AHB1PeriphClockCmd   0x800'0f6d    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_APB1PeriphClockCmd   0x800'0f89    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_APB1PeriphResetCmd   0x800'0fa5    0x1c  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_GetClocksFreq        0x800'0e29   0x102  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_GetFlagStatus        0x800'0fc1    0x46  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_LSEConfig            0x800'0e01    0x28  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_RTCCLKCmd            0x800'0f61     0xc  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_RTCCLKConfig         0x800'0f2b    0x36  Code  Gb  stm32f4xx_rcc.o [1]
+RTC_Bcd2ToByte           0x800'1559    0x18  Code  Lc  stm32f4xx_rtc.o [1]
+RTC_ByteToBcd2           0x800'1541    0x18  Code  Lc  stm32f4xx_rtc.o [1]
+RTC_EnterInitMode        0x800'13ad    0x4a  Code  Gb  stm32f4xx_rtc.o [1]
+RTC_ExitInitMode         0x800'13f7     0xe  Code  Gb  stm32f4xx_rtc.o [1]
+RTC_SetTime              0x800'1457    0xd4  Code  Gb  stm32f4xx_rtc.o [1]
+RTC_WaitForSynchro       0x800'1405    0x52  Code  Gb  stm32f4xx_rtc.o [1]
+RTC_init                 0x800'0bb7    0x62  Code  Gb  time_user.o [1]
+Region$$Table$$Base      0x800'178c           --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'17b0           --   Gb  - Linker created -
+SetSysClock              0x800'0cab    0xaa  Code  Lc  system_stm32f4xx.o [1]
+SysTickStart             0x800'0c19    0x26  Code  Gb  time_user.o [1]
+SysTick_Handler          0x800'1573    0x24  Code  Gb  stm32f2xx_it.o [1]
+SystemInit               0x800'0c65    0x46  Code  Gb  system_stm32f4xx.o [1]
+TIM2_IRQHandler          0x800'1657    0x24  Code  Gb  stm32f2xx_it.o [1]
+TIM5_IRQHandler          0x800'167b    0x22  Code  Gb  stm32f2xx_it.o [1]
+TIM6_DAC_IRQHandler      0x800'169d    0x26  Code  Gb  stm32f2xx_it.o [1]
+TIM7_IRQHandler          0x800'16c3    0x1a  Code  Gb  stm32f2xx_it.o [1]
+TIM_ClearFlag            0x800'0765     0xa  Code  Gb  stm32f4xx_tim.o [1]
+TIM_ClearITPendingBit    0x800'079d     0xa  Code  Gb  stm32f4xx_tim.o [1]
+TIM_Cmd                  0x800'0713    0x1e  Code  Gb  stm32f4xx_tim.o [1]
+TIM_GetITStatus          0x800'076f    0x2e  Code  Gb  stm32f4xx_tim.o [1]
+TIM_ITConfig             0x800'074d    0x18  Code  Gb  stm32f4xx_tim.o [1]
 TIM_InternalClockConfig
-                         0x800'0777     0xc  Code  Gb  stm32f4xx_tim.o [1]
-TIM_TimeBaseInit         0x800'0661    0x6a  Code  Gb  stm32f4xx_tim.o [1]
-TIM_TimeBaseStructInit   0x800'06cb    0x18  Code  Gb  stm32f4xx_tim.o [1]
+                         0x800'07a7     0xc  Code  Gb  stm32f4xx_tim.o [1]
+TIM_TimeBaseInit         0x800'0691    0x6a  Code  Gb  stm32f4xx_tim.o [1]
+TIM_TimeBaseStructInit   0x800'06fb    0x18  Code  Gb  stm32f4xx_tim.o [1]
 Ticks                   0x2000'7dec     0x4  Data  Gb  time_user.o [1]
 TimeOut                 0x2000'7de4     0x4  Data  Gb  main.o [1]
 TxTail                  0x2000'7df4     0x2  Data  Gb  transp.o [1]
-USART2_IRQHandler        0x800'1567    0xc0  Code  Gb  stm32f2xx_it.o [1]
-USART2_put_char          0x800'099d    0x6e  Code  Gb  usart_user.o [1]
+USART2_IRQHandler        0x800'1597    0xc0  Code  Gb  stm32f2xx_it.o [1]
+USART2_put_char          0x800'09cd    0x6e  Code  Gb  usart_user.o [1]
 USART_ClearITPendingBit
-                         0x800'1345    0x26  Code  Gb  stm32f4xx_usart.o [1]
-USART_Cmd                0x800'1221    0x1e  Code  Gb  stm32f4xx_usart.o [1]
-USART_GetFlagStatus      0x800'12bf    0x1c  Code  Gb  stm32f4xx_usart.o [1]
-USART_GetITStatus        0x800'12db    0x6a  Code  Gb  stm32f4xx_usart.o [1]
-USART_ITConfig           0x800'124f    0x70  Code  Gb  stm32f4xx_usart.o [1]
-USART_Init               0x800'113d    0xd6  Code  Gb  stm32f4xx_usart.o [1]
-USART_ReceiveData        0x800'1247     0x8  Code  Gb  stm32f4xx_usart.o [1]
-USART_SendData           0x800'123f     0x8  Code  Gb  stm32f4xx_usart.o [1]
-__NVIC_EnableIRQ         0x800'0a2d    0x1e  Code  Lc  time_user.o [1]
-__NVIC_EnableIRQ         0x800'0895    0x1e  Code  Lc  usart_user.o [1]
-__NVIC_SetPriority       0x800'0a4b    0x2c  Code  Lc  time_user.o [1]
-__NVIC_SetPriority       0x800'08b3    0x2c  Code  Lc  usart_user.o [1]
-__aeabi_memcpy           0x800'0785          Code  Gb  ABImemcpy.o [4]
-__aeabi_memcpy4          0x800'07a5          Code  Gb  ABImemcpy.o [4]
-__aeabi_memcpy8          0x800'07a5          Code  Gb  ABImemcpy.o [4]
-__cmain                  0x800'1781          Code  Gb  cmain.o [4]
-__exit                   0x800'17b5    0x14  Code  Gb  exit.o [5]
-__iar_copy_init3         0x800'16e5    0x2c  Code  Gb  copy_init3.o [4]
-__iar_data_init3         0x800'1711    0x28  Code  Gb  data_init.o [4]
-__iar_init_vfp           0x800'1739          Code  Gb  fpinit_M.o [3]
-__iar_program_start      0x800'17d9          Code  Gb  cstartup_M.o [4]
-__iar_zero_init3         0x800'057b    0x3a  Code  Gb  zero_init3.o [4]
-__low_level_init         0x800'179f     0x4  Code  Gb  low_level_init.o [2]
+                         0x800'1375    0x26  Code  Gb  stm32f4xx_usart.o [1]
+USART_Cmd                0x800'1251    0x1e  Code  Gb  stm32f4xx_usart.o [1]
+USART_GetFlagStatus      0x800'12ef    0x1c  Code  Gb  stm32f4xx_usart.o [1]
+USART_GetITStatus        0x800'130b    0x6a  Code  Gb  stm32f4xx_usart.o [1]
+USART_ITConfig           0x800'127f    0x70  Code  Gb  stm32f4xx_usart.o [1]
+USART_Init               0x800'116d    0xd6  Code  Gb  stm32f4xx_usart.o [1]
+USART_ReceiveData        0x800'1277     0x8  Code  Gb  stm32f4xx_usart.o [1]
+USART_SendData           0x800'126f     0x8  Code  Gb  stm32f4xx_usart.o [1]
+__NVIC_EnableIRQ         0x800'0a5d    0x1e  Code  Lc  time_user.o [1]
+__NVIC_EnableIRQ         0x800'08c5    0x1e  Code  Lc  usart_user.o [1]
+__NVIC_SetPriority       0x800'0a7b    0x2c  Code  Lc  time_user.o [1]
+__NVIC_SetPriority       0x800'08e3    0x2c  Code  Lc  usart_user.o [1]
+__aeabi_memcpy           0x800'07b5          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy4          0x800'07d5          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy8          0x800'07d5          Code  Gb  ABImemcpy.o [4]
+__cmain                  0x800'17b1          Code  Gb  cmain.o [4]
+__exit                   0x800'17e5    0x14  Code  Gb  exit.o [5]
+__iar_copy_init3         0x800'1715    0x2c  Code  Gb  copy_init3.o [4]
+__iar_data_init3         0x800'1741    0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp           0x800'1769          Code  Gb  fpinit_M.o [3]
+__iar_program_start      0x800'1809          Code  Gb  cstartup_M.o [4]
+__iar_zero_init3         0x800'05ab    0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init         0x800'17cf     0x4  Code  Gb  low_level_init.o [2]
 __vector_table           0x800'0000          Data  Gb  startup_stm32f40xx.o [1]
-_call_main               0x800'178d          Code  Gb  cmain.o [4]
-_crc16                   0x800'03a9    0x40  Code  Gb  transp.o [1]
-_exit                    0x800'17a9          Code  Gb  cexit.o [4]
-_main                    0x800'179b          Code  Gb  cmain.o [4]
-addSlipPacket            0x800'042f    0x28  Code  Gb  transp.o [1]
-bufferIsEmpy             0x800'05e3     0x6  Code  Gb  main.o [1]
+_call_main               0x800'17bd          Code  Gb  cmain.o [4]
+_crc16                   0x800'03db    0x40  Code  Gb  transp.o [1]
+_exit                    0x800'17d9          Code  Gb  cexit.o [4]
+_main                    0x800'17cb          Code  Gb  cmain.o [4]
+addSlipPacket            0x800'0461    0x28  Code  Gb  transp.o [1]
+bufferIsEmpy             0x800'0613     0x6  Code  Gb  main.o [1]
 channelOrderState       0x2000'7df0     0x2  Data  Gb  main.o [1]
 channelsOrder           0x2000'7df6     0x2  Data  Gb  transp.o [1]
-check_crc16              0x800'036b    0x3e  Code  Gb  transp.o [1]
-clock_init               0x800'0a77   0x110  Code  Gb  time_user.o [1]
+check_crc16              0x800'039d    0x3e  Code  Gb  transp.o [1]
+clock_init               0x800'0aa7   0x110  Code  Gb  time_user.o [1]
 currenChanel            0x2000'7df8     0x2  Data  Gb  transp.o [1]
 dataBuffer              0x2000'5608  0x2710  Data  Gb  main.o [1]
 delay_decrement_1mcs    0x2000'7de0     0x4  Data  Gb  main.o [1]
-exit                     0x800'17a3     0x4  Code  Gb  exit.o [2]
-generateBuffer           0x800'05f9    0x5a  Code  Gb  main.o [1]
-getChannelsOrder         0x800'0421     0x8  Code  Gb  transp.o [1]
-getMesFlag               0x800'041b     0x6  Code  Gb  transp.o [1]
+exit                     0x800'17d3     0x4  Code  Gb  exit.o [2]
+generateBuffer           0x800'0629    0x5a  Code  Gb  main.o [1]
+getChannelsOrder         0x800'0453     0x8  Code  Gb  transp.o [1]
+getMesFlag               0x800'044d     0x6  Code  Gb  transp.o [1]
 inBuf                   0x2000'7d7c    0x64  Data  Gb  transp.o [1]
 inLen                   0x2000'7e07     0x1  Data  Gb  transp.o [1]
 isEmpty                 0x2000'0014     0x1  Data  Gb  main.o [1]
 last_packet_id          0x2000'0010     0x4  Data  Lc  transp.o [1]
-main                     0x800'05b5    0x2e  Code  Gb  main.o [1]
-memcmp                   0x800'082d          Code  Gb  memcmp.o [4]
+main                     0x800'05e5    0x2e  Code  Gb  main.o [1]
+memcmp                   0x800'085d          Code  Gb  memcmp.o [4]
 outBuf                  0x2000'0018  0x2af8  Data  Gb  transp.o [1]
 outLen                  0x2000'7dfa     0x2  Data  Gb  transp.o [1]
 received                0x2000'7df2     0x2  Data  Lc  slip.o [1]
-resetBufferEmpty         0x800'05f1     0x8  Code  Gb  main.o [1]
-resetMesFlag             0x800'0413     0x8  Code  Gb  transp.o [1]
+resetBufferEmpty         0x800'0621     0x8  Code  Gb  main.o [1]
+resetMesFlag             0x800'0445     0x8  Code  Gb  transp.o [1]
 rx_slip_buffer          0x2000'7d18    0x64  Data  Lc  slip.o [1]
 rx_wr_index             0x2000'7dfc     0x2  Data  Gb  usart_user.o [1]
-send_std_answer          0x800'03e9    0x22  Code  Gb  transp.o [1]
-setBufferEmpty           0x800'05e9     0x8  Code  Gb  main.o [1]
-setCurrentChannel        0x800'0429     0x6  Code  Gb  transp.o [1]
-setMesFlag               0x800'040b     0x8  Code  Gb  transp.o [1]
+send_std_answer          0x800'041b    0x22  Code  Gb  transp.o [1]
+setBufferEmpty           0x800'0619     0x8  Code  Gb  main.o [1]
+setCurrentChannel        0x800'045b     0x6  Code  Gb  transp.o [1]
+setMesFlag               0x800'043d     0x8  Code  Gb  transp.o [1]
 slipRecieved            0x2000'7e06     0x1  Data  Gb  transp.o [1]
-slip_new_rx_byte         0x800'0485    0x98  Code  Gb  slip.o [1]
+slip_new_rx_byte         0x800'04b5    0x98  Code  Gb  slip.o [1]
 slip_packet_receive_handler
                          0x800'0189    0x3a  Code  Gb  transp.o [1]
-slip_send_packet         0x800'0529    0x52  Code  Gb  slip.o [1]
+slip_send_packet         0x800'0559    0x52  Code  Gb  slip.o [1]
 state                   0x2000'7e04     0x1  Data  Lc  slip.o [1]
 time_mcs100             0x2000'7de8     0x4  Data  Gb  stm32f2xx_it.o [1]
 transp_packet_receive_handler
-                         0x800'01c3   0x15e  Code  Gb  transp.o [1]
-transp_send_answer       0x800'0321    0x4a  Code  Gb  transp.o [1]
+                         0x800'01c3   0x190  Code  Gb  transp.o [1]
+transp_send_answer       0x800'0353    0x4a  Code  Gb  transp.o [1]
 tx_buffer               0x2000'2b10  0x2af8  Data  Gb  usart_user.o [1]
 tx_counter              0x2000'7e02     0x2  Data  Gb  usart_user.o [1]
 tx_rd_index             0x2000'7e00     0x2  Data  Gb  usart_user.o [1]
@@ -500,7 +500,7 @@ ubCounter               0x2000'7e05     0x1  Data  Gb  stm32f2xx_it.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-   6 414 bytes of readonly  code memory
+   6 462 bytes of readonly  code memory
       66 bytes of readonly  data memory
   40 453 bytes of readwrite data memory
 

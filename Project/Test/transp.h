@@ -29,7 +29,9 @@
 #define CH2             0x02
 #define CH3             0x04
 #define CH4             0x08
-
+#define LAZER1_SET      0x10
+#define LAZER2_SET      0x11
+#define LAZERS_SAVE     0x12
 
 #define OUT_BUFFER_SIZE 11000
 #define IN_BUF_SIZE 100
